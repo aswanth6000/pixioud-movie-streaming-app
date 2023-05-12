@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Verify Creator Request</title>
+</head>
+
+<body>
+<table width="200" border="1">
+  <tr>
+    <th scope="row">Serial No</th>
+    <th> User Name</th>
+    <th> Email</th>
+    <th>Date</th>
+    <th> Status</th>
+    <th colspan="2">Decision</th>
+  </tr>
+
+    {% for i in data %}
+  <tr>
+
+    <td>&nbsp;{{ loop.index }}</td>
+    <td>&nbsp;&nbsp;{{ i.user_id }}</td>
+    <td>  {{ i.email }}</td>
+    <td>{{ i.date }}</td>
+    <td> {{ i.status }}</td>
+    {% if i.status=='pending' %}
+        <td><a href="/adm_verification/{{ i.creator_id }}">Approve</a>
+        <td><a href="/creator_rej/{{ i.creator_id}}">Reject</a>
+  {% else %}
+    <td>{{ i.status }}</td>
+  {% endif %}
+
+
+  </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

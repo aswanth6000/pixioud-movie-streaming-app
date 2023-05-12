@@ -1,0 +1,121 @@
+<html>
+<head>
+  <title>
+    Rating
+  </title>
+</head>
+<body>
+<form action="" method="POST">
+  <input type="hidden" name="user_id" value="{{ user_id }}">
+  <input type="hidden" name="movie_id" value="{{ movie_id }}">
+  <label for="rating" style="margin-left: 28%;">Rate this movie:</label>
+  <div class="rating">
+  <input id="rating1" type="radio" name="rating" value="1">
+  <label for="rating1">1</label>
+  <input id="rating2" type="radio" name="rating" value="2">
+  <label for="rating2">2</label>
+  <input id="rating3" type="radio" name="rating" value="3">
+  <label for="rating3">3</label>
+  <input id="rating4" type="radio" name="rating" value="4">
+  <label for="rating4">4</label>
+  <input id="rating5" type="radio" name="rating" value="5">
+  <label for="rating5">5</label>
+  </div>
+  <button type="submit" class="button-3"style="margin-left: 25%;">Submit rating</button>
+</form>
+</body>
+
+<style>
+  form{
+    border: 3px solid black;
+    padding: 12px;
+    border-radius: 17px;
+        background-color: #0b0c2a;
+
+  }
+  body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        background-color: #070720;
+    color: white;
+
+  }
+  .button-3 {
+  appearance: none;
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-3:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.button-3:hover {
+  background-color: #2c974b;
+}
+
+.button-3:focus {
+  box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+  outline: none;
+}
+
+.button-3:disabled {
+  background-color: #94d3a2;
+  border-color: rgba(27, 31, 35, .1);
+  color: rgba(255, 255, 255, .8);
+  cursor: default;
+}
+
+.button-3:active {
+  background-color: #298e46;
+  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+  .rating{
+  display : flex;
+}
+
+.rating input{
+  position : absolute;
+  left     : -100vw;
+}
+
+.rating label{
+  width      : 48px;
+  height     : 48px;
+  padding    : 48px 0 0;
+  overflow   : hidden;
+  background : url('/static/assets/stars.svg') no-repeat top left;
+}
+  .rating:not(:hover) input:indeterminate + label,
+.rating:not(:hover) input:checked ~ input + label,
+.rating input:hover ~ input + label{
+  background-position : -48px 0;
+}
+  .rating:not(:hover) input:focus-visible + label{
+  background-position : -96px 0;
+}
+</style>
+
+</html>
+

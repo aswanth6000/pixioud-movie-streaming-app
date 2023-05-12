@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Promo Request</title>
+</head>
+
+<body>
+<table width="200" border="1">
+<tr>
+
+    <tr>
+      <th scope="col">Serial No</th>
+      <th scope="col">User Name</th>
+      <th scope="col">date</th>
+      <th scope="col">Promo Name</th>
+      <th scope="col">Poster</th>
+      <th scope="col">banner</th>
+      <th scope="col">status</th>
+
+      <th colspan="2" scope="col">Action</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{loop.index }}</td>
+      <td>&nbsp;{{ i.name }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.movie_name }}</td>
+      <td>{{ i.poster }}</td>
+      <td>{{ i.banner }}</td>
+      <td>{{ i.promo_status }}</td>
+{% if i.promo_status=='pending' %}
+        <td><a href="/promo_acc/{{ i.promo_request_id }}">Approve</a>
+        <td><a href="/promo_rej/{{ i.promo_request_id}}">Reject</a>
+      {% elif i.promo_status=='approved' %}
+      <td><a href="/promo_del/{{ i.promo_request_id}}">delete</a>
+  {% else %}
+    <td>{{ i.status }}</td>
+  {% endif %}
+    </tr>
+      {% endfor %}
+
+</tr>
+</table>
+</body>
+</html>

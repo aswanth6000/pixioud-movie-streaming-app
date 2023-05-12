@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  />
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"  />
+
+
+
+
+<body>
+<div class="container mb-5 mt-5">
+
+			     <div class="card">
+					<div class="row">
+						<div class="col-md-12">
+							<h3 class="text-center mb-5">
+								Feedbacks
+							</h3>
+							<div class="row">                    {% for i in data %}
+
+								<div class="col-md-12">
+									<div class="media">
+										<img class="mr-3 rounded-circle" alt="Bootstrap Media Preview" src="/static/profile/{{i.photo}}" />
+										<div class="media-body">
+											<div class="row">
+											 <div class="col-8 d-flex">
+											    <h5>{{i.name}}</h5>
+												<span style="margin-left: 5px;color:#d8ff00">{{i.date}}</span>
+											 </div>
+
+											 <div class="col-4">
+
+											 <div class="pull-right reply">
+
+
+											 </div>
+
+											 </div>
+											</div>
+
+											{{i.feedback}}
+
+											<div class="media mt-5 mb-4">
+												 <a class="pr-3" href="#"><img class="rounded-circle" alt="Bootstrap Media Another Preview" src="https://i0.wp.com/bane-tech.com/wp-content/uploads/2015/10/A.png?fit=3840%2C1764" /></a>
+												<div class="media-body">
+
+													<div class="row">
+											 <div class="col-12 d-flex">
+											    <h5>ADMIN</h5>
+												<span>{{reply_date}}</span>
+											 </div>
+
+
+											</div>
+
+													{{i.reply}}
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+                                          {% endfor %}
+
+						</div>
+					</div>
+					</div>
+
+				</div>
+</body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    display: grid;
+    place-items: center;
+font-family: 'Source Sans Pro', sans-serif;
+    background: #070720;
+	color: white;
+}
+
+
+
+
+ .card {
+     position: relative;
+     display: flex;
+     padding:20px;
+     flex-direction: column;
+     min-width: 0;
+     word-wrap: break-word;
+     background-color: #0b0c2a;
+     background-clip: border-box;
+     border: 1px solid #d2d2dc;
+     border-radius: 11px;
+     -webkit-box-shadow: 0px 0px 5px 0px rgb(249, 249, 250);
+     -moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1);
+     box-shadow: 0px 0px 5px 0px rgb(161, 163, 164)
+ }
+
+.media img{
+
+    width: 60px;
+    height: 60px;
+}
+
+
+.reply a {
+
+    text-decoration: none;
+}
+</style>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>My profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js" rel="script" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="script" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+        <link rel="stylesheet" href="/static/css/cp style.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/plyr.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+    	{% for i in data %}
+
+
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="#">
+                            <img src="/static/img/logo.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li class="active"><a href="#">Homepage</a></li>
+
+                                <li><a href="/viewplaylist">Playlist</a></li>
+                                <li><a href="/sendfeedback">Feedback</a></li>
+                                <li><a href="#">Contacts</a></li>
+                                <li><a href="">More <span class="arrow_carrot-down"></span></a>
+                                    <ul class="dropdown">
+                                        <li><a href="/viewpromoreqs">Movie promotion</a></li>
+                                        <li><a href="/viewhiringandapply">Hirings</a></li>
+                                        <li><a href="/hiring">Add Hirings</a></li>
+
+
+                                             {% if i.user_type=='creator'%}
+
+                                        <li><a href="/addmovie">Add Movies</a></li>
+                                        <li><a href="/pay">Payment</a></li>
+                                        {% else %}
+                                        <li><a href="/rfv/{{i.user_id}}">Request for verification</a></li>
+
+                                                {% endif %}
+
+                                        <li><a href="/creatorbug">bugs?</a></li>
+                                        <li><a href="/logout">Log Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+	<div class="bod">
+<div class="card-container">
+    {% if i.user_type== 'creator' %}
+	<span class="pro" style="background-color: green;color: white">{{i.user_type.upper()}}</span>
+    {% else %}
+    <span class="pro">USER</span>
+    {% endif %}
+	<a href="/editcreatordetails">
+        {% if i.photo %}
+        <img class="round" src="/static/profile/{{i.photo}}" alt="user" />
+        {% else %}
+        <img class="round" src="/static/assets/default.png" alt="user" />
+    {% endif %}
+    </a>
+	<h3 style="color: white">{{i.name}}</h3>
+	<h6 style="color: white">{{i.email}}</h6>
+	<div class="bio"><p style="color: white">{{i.bio}}</p></div>
+		<a href="/viewfollowers"><button class="primary ghost-q" >
+			View Followers
+		</button></a>
+	<div class="buttons">
+	<a href="/viewmyhr">	<button class="primary">
+			Hirings
+		</button></a>
+     {% if i.user_type=='creator'%}
+<a href="/viewmovie"><button class="primary" >
+			My movies
+		</button></a>
+        {% endif %}
+	</div>
+	<button class="primary ghost" onclick="history.back()" >
+			Back
+		</button>
+
+</div>
+        	{% endfor %}
+
+        <p style="margin-top:15px;color: #ffffff63">*Tap on the profile picture to edit details</p>
+</div>
+</body>
+<script src="./static/js/jquery-3.3.1.min.js"></script>
+<script src="./static/js/bootstrap.min.js"></script>
+<script src="./static/js/player.js"></script>
+<script src="./static/js/jquery.nice-select.min.js"></script>
+<script src="./static/js/mixitup.min.js"></script>
+<script src="./static/js/jquery.slicknav.js"></script>
+<script src="./static/js/owl.carousel.min.js"></script>
+<script src="./static/js/main.js"></script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Movies Approval</title>
+</head>
+
+<body>
+<form action="" method="get"><form width="200" border="1">
+
+<table width="200" border="1">
+  <tr>
+    <th scope="row">Serial No</th>
+    <th>Creator Name</th>
+    <th>Movie Name</th>
+    <th>Description</th>
+    <th>Director Name</th>
+    <th>movie</th>
+    <th colspan="2">Decision</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+
+    <td>&nbsp;{{ loop.index }}</td>
+    <td>&nbsp;{{ i.creator_id }}</td>
+    <td>{{ i.movie_name }}</td>
+    <td>{{ i.description }}</td>
+    <td>&nbsp;{{ i.director_name }}</td>{#
+{#    <td>&nbsp;{{ i.poster }}</td>#}
+      <td>&nbsp;{{i.movie}}</td>
+    {% if i.movie_status=='pending' %}
+        <td><a href="/adm_approve_movie/{{ i.movie_id }}">Approve</a>
+        <td><a href="/movierej/{{ i.movie_id}}">Reject</a>
+  {% else %}
+    <td>{{ i.movie_status }}</td>
+  {% endif %}
+
+
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>

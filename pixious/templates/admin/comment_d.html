@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Anime Template">
+    <meta name="keywords" content="Anime, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Comments</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/plyr.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header">
+      <h1 style="font-family: 'Ubuntu', sans-serif;">Comments</h1>
+    </header>
+    <!-- Header End -->
+    <div class="tab">
+<table width="70%" border="1" >
+  <tr>
+    <th scope="col">Serial No</th>
+    <th scope="col">Comment</th>
+    <th scope="col">Movie name</th>
+    <th scope="col">Date</th>
+    <th scope="col">Type</th>
+   {#<th scope="col">Reply date</th>#}
+      {#<th scope="col">Reply</th>#}
+      <th scope="col">Action</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ loop.index}}</td>
+    <td>&nbsp;{{ i.comment }}</td>
+    <td> {{ i.movie_name }}</td>
+    <td> {{ i.date }}</td>
+    <td> {{ i.type }}</td>
+      {# <td> {{ i.reply_date }}</td>
+  {#    <td> <a href="/Reply">Reply</a></td>#}
+    <td><a href="/comdelete/{{ i.comment_id}}"><button type="button" style="width: 100%" class="btn btn-danger">Delete</button></a></td>
+  </tr>
+    {% endfor %}
+</table>
+        </div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+   table, td,th,tr{
+        color: white;
+
+    }
+</style>
+
+
+<!-- Js Plugins -->
+<script src="./static/js/jquery-3.3.1.min.js"></script>
+<script src="./static/js/bootstrap.min.js"></script>
+<script src="./static/js/player.js"></script>
+<script src="./static/js/jquery.nice-select.min.js"></script>
+<script src="./static/js/mixitup.min.js"></script>
+<script src="./static/js/jquery.slicknav.js"></script>
+<script src="./static/js/owl.carousel.min.js"></script>
+<script src="./static/js/main.js"></script>
+
+
+</body>
+
+</html>

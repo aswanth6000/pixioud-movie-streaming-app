@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Message</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css" integrity="sha512-NtU/Act0MEcVPyqC153eyoq9L+UHkd0s22FjIaKByyA6KtZPrkm/O5c5xzaia4pyCfReCS634HyQ7tJwKNxC/g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <nav class="menu">
+        <ul class="items">
+          <li class="item">
+             <a href="/creatorhome" style="text-decoration: none;color: inherit"><i class="fa fa-home" aria-hidden="true"></i></a>
+          </li>
+          <li class="item">
+            <a href="/creatorpro" style="text-decoration: none;color: inherit"><i class="fa fa-user" aria-hidden="true"></i></a>
+          </li>
+          <li class="item item-active">
+            <i class="fa fa-commenting" aria-hidden="true"></i>
+          </li>
+        </ul>
+      </nav>
+
+         <section style="display: flex;flex-direction: column" class="chat">
+
+
+
+        <div class="header-chat">
+            {% for i in data2 %}
+
+          <img src="/static/profile/{{i.photo}}" style="height: 50px;width: 50px;border-radius: 63px;margin-left: 20px">
+                             {% endfor %}
+
+          <p class="name">{{ nam }}</p>
+        </div>
+
+
+
+        <div class="messages-chat" style="    overflow-y: scroll;height: 481px;">
+           <div class="message text-only">
+
+            <div class="response" style="display: flex; flex-direction: column;">
+              {% for i in data %}
+           {% if i.from_id == session.lid %}
+              <p class="text" style="margin-left: 700px;display: inline-block;width: 100px;">{{ i.message }}</p>
+
+
+                {% else %}
+                <div class="" style="    display: flex;align-items: center;">
+
+                <div style="display: flex">
+            <p class="text" style="">{{ i.message }}</p>
+                </div>
+          </div>
+
+
+               {% endif %}
+          {% endfor %}
+            </div>
+
+          </div>
+
+
+
+          <!--<div class="message">-->
+            <!--<div class="photo" style="background-image: url(https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);">-->
+              <!--<div class="online"></div>-->
+            <!--</div>-->
+          <!--{% for i in data %}-->
+           <!--{% if i.to_id == session.lid %}-->
+            <!--<p class="text">{{ i.message }}</p>-->
+           <!--{% endif %}-->
+          <!--{% endfor %}-->
+          <!--</div>-->
+
+          <!--<div class="message">-->
+            <!--<div class="photo" style="background-image: url(https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);">-->
+              <!--<div class="online"></div>-->
+            <!--</div>-->
+            <!--<p class="text"> Hi, how are you ? </p>-->
+          <!--</div>-->
+          <!--<div class="message text-only">-->
+            <!--<p class="text"> What are you doing tonight ? Want to go take a drink ?</p>-->
+          <!--</div>-->
+          <!--<p class="time"> 14h58</p>-->
+          <!--<div class="message text-only">-->
+            <!--<div class="response">-->
+              <!--<p class="text"> Hey Megan ! It's been a while 😃</p>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="message text-only">-->
+            <!--<div class="response">-->
+              <!--<p class="text"> When can we meet ?</p>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<p class="response-time time"> 15h04</p>-->
+          <!--<div class="message">-->
+            <!--<div class="photo" style="background-image: url(https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);">-->
+              <!--<div class="online"></div>-->
+            <!--</div>-->
+            <!--<p class="text"> 9 pm at the bar if possible 😳</p>-->
+          <!--</div>-->
+          <!--<p class="time"> 15h09</p>-->
+                    <!--<div class="message text-only">-->
+            <!--<div class="response">-->
+              <!--<p class="text"> When can we meet ?</p>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<p class="response-time time"> 15h04</p>-->
+          <!--<div class="message">-->
+            <!--<div class="photo" style="background-image: url(https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);">-->
+              <!--<div class="online"></div>-->
+            <!--</div>-->
+            <!--<p class="text"> 9 pm at the bar if possible 😳</p>-->
+          <!--</div>-->
+          <!--<p class="time"> 15h09</p>-->
+                    <!--<div class="message text-only">-->
+            <!--<div class="response">-->
+              <!--<p class="text"> When can we meet ?</p>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<p class="response-time time"> 15h04</p>-->
+          <!--<div class="message">-->
+            <!--<div class="photo" style="background-image: url(https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);">-->
+              <!--<div class="online"></div>-->
+            <!--</div>-->
+            <!--<p class="text"> 9 pm at the bar if possible 😳</p>-->
+          <!--</div>-->
+          <!--<p class="time"> 15h09</p>-->
+                    <!--<div class="message text-only">-->
+            <!--<div class="response">-->
+              <!--<p class="text"> When can we meet ?</p>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<p class="response-time time"> 15h04</p>-->
+          <!--<div class="message">-->
+            <!--<div class="photo" style="background-image: url(https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);">-->
+              <!--<div class="online"></div>-->
+            <!--</div>-->
+            <!--<p class="text"> 9 pm at the bar if possible 😳</p>-->
+          <!--</div>-->
+          <!--<p class="time"> 15h09</p>-->
+        </div>
+           <form method="post" action="/msgsnd/{{ t }}">
+        <div class="footer-chat">
+          <input type="text" class="write-message" name="chat" placeholder="Type your message here"/>
+          <input type="submit" class="icon send fa fa-paper-plane-o clickable">
+          <!--<i class="icon send fa fa-paper-plane-o clickable" aria-hidden="true"></i>-->
+        </div>
+             </form>
+      </section>
+
+    </div>
+  </div>
+</body>
+
+<style>
+body {
+  padding: 5%;
+  background-color: #0b0c2a;
+      padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 20px;
+}
+
+.container {
+  padding:0;
+  background-color: #070720;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  height: 700px;
+        width: 97%;
+}
+
+/* ===== MENU ===== */
+.menu {
+  float: left;
+  height: 700px;;
+  width: 70px;
+  background: #4768b5;
+  background: -webkit-linear-gradient(#4768b5, #35488e);
+  background: -o-linear-gradient(#4768b5, #35488e);
+  background: -moz-linear-gradient(#4768b5, #35488e);
+  background: linear-gradient(#4768b5, #35488e);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19);
+}
+
+.menu .items {
+  list-style:none;
+  margin: auto;
+  padding: 0;
+}
+
+.menu .items .item {
+  height: 70px;
+  border-bottom: 1px solid #6780cc;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  color: #9fb5ef;
+  font-size: 17pt;
+}
+
+.menu .items .item-active {
+  background-color:#5172c3;
+  color: #FFF;
+}
+
+.menu .items .item:hover {
+  cursor: pointer;
+  background-color: #4f6ebd;
+  color: #cfe5ff;
+}
+
+/* === CONVERSATIONS === */
+
+.discussions {
+  width: 35%;
+  height: 700px;
+  box-shadow: 0px 8px 10px rgba(0,0,0,0.20);
+  overflow: hidden;
+  background-color: #87a3ec;
+  display: inline-block;
+}
+
+.discussions .discussion {
+  width: 100%;
+  height: 90px;
+  background-color: #FAFAFA;
+  border-bottom: solid 1px #E0E0E0;
+  display:flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.discussions .search {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  color: #E0E0E0;
+}
+
+.discussions .search .searchbar {
+  height: 40px;
+  background-color: #FFF;
+  width: 70%;
+  padding: 0 20px;
+  border-radius: 50px;
+  border: 1px solid #EEEEEE;
+  display:flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.discussions .search .searchbar input {
+  margin-left: 15px;
+  height:38px;
+  width:100%;
+  border:none;
+  font-family: 'Montserrat', sans-serif;;
+}
+
+.discussions .search .searchbar *::-webkit-input-placeholder {
+    color: #E0E0E0;
+}
+.discussions .search .searchbar input *:-moz-placeholder {
+    color: #E0E0E0;
+}
+.discussions .search .searchbar input *::-moz-placeholder {
+    color: #E0E0E0;
+}
+.discussions .search .searchbar input *:-ms-input-placeholder {
+    color: #E0E0E0;
+}
+
+.discussions .message-active {
+  width: 98.5%;
+  height: 90px;
+  background-color: #FFF;
+  border-bottom: solid 1px #E0E0E0;
+}
+
+.discussions .discussion .photo {
+    margin-left:20px;
+    display: block;
+    width: 45px;
+    height: 45px;
+    background: #E6E7ED;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.online {
+  position: relative;
+  top: 30px;
+  left: 35px;
+  width: 13px;
+  height: 13px;
+  background-color: #8BC34A;
+  border-radius: 13px;
+  border: 3px solid #FAFAFA;
+}
+
+.desc-contact {
+  height: 43px;
+  width:50%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.discussions .discussion .name {
+  margin: 0 0 0 20px;
+  font-family:'Montserrat', sans-serif;
+  font-size: 11pt;
+  color:#515151;
+}
+
+.discussions .discussion .message {
+  margin: 6px 0 0 20px;
+  font-family:'Montserrat', sans-serif;
+  font-size: 9pt;
+  color:#515151;
+}
+
+.timer {
+  margin-left: 15%;
+  font-family:'Open Sans', sans-serif;
+  font-size: 11px;
+  padding: 3px 8px;
+  color: #BBB;
+  background-color: #FFF;
+  border: 1px solid #E5E5E5;
+  border-radius: 15px;
+}
+
+.chat {
+}
+
+.header-chat {
+  background-color: #070720;
+  height: 90px;
+  width: 100%;
+  box-shadow: 0px 3px 2px rgb(0 0 0);
+  display:flex;
+  align-items: center;
+}
+
+.chat .header-chat .icon {
+  margin-left: 30px;
+  color:#515151;
+  font-size: 14pt;
+}
+
+.chat .header-chat .name {
+  margin: 0 0 0 20px;
+  text-transform: uppercase;
+  font-family:'Montserrat', sans-serif;
+  font-size: 13pt;
+  color:#515151;
+}
+
+.chat .header-chat .right {
+  position: absolute;
+  right: 40px;
+}
+
+.chat .messages-chat {
+  padding: 25px 35px;
+}
+
+.chat .messages-chat .message {
+  display:flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.chat .messages-chat .message .photo {
+    display: block;
+    margin-left: 10px;
+    width: 45px;
+    height: 45px;
+    background: #E6E7ED;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.chat .messages-chat .text {
+margin: 11px 33px;
+    background-color: #f6f6f6;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.text-only {
+  margin-left: 45px;
+}
+
+.time {
+  font-size: 10px;
+  color:lightgrey;
+  margin-bottom:10px;
+  margin-left: 85px;
+}
+
+.response-time {
+  float: right;
+  margin-right: 40px !important;
+}
+
+.response {
+    margin-right: 574px; /* flexbox alignment rule */
+}
+
+.response .text {
+  background-color: #e3effd !important;
+}
+
+.footer-chat {
+
+width: auto;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+      margin-right: 6%;
+
+}
+
+.chat .footer-chat .icon {
+  margin-left: 30px;
+  color:#C0C0C0;
+  font-size: 14pt;
+}
+
+.chat .footer-chat .send {
+  color:#fff;
+  background-color: #4f6ebd;
+  padding: 12px 12px 12px 12px;
+  border-radius: 50px;
+  font-size: 21pt;
+}
+
+.chat .footer-chat .name {
+  margin: 0 0 0 20px;
+  text-transform: uppercase;
+  font-family:'Montserrat', sans-serif;
+  font-size: 13pt;
+  color:#515151;
+}
+
+.chat .footer-chat .right {
+  position: absolute;
+  right: 40px;
+}
+
+.write-message {
+    border: none !important;
+    width: 88%;
+    height: 50px;
+    background-color: #070720;
+    margin-left: 20px;
+    padding: 10px;
+    color: white;
+    font-size: 18pt;
+}
+
+.footer-chat *::-webkit-input-placeholder {
+  color: #C0C0C0;
+  font-size: 13pt;
+}
+.footer-chat input *:-moz-placeholder {
+  color: #C0C0C0;
+  font-size: 13pt;
+}
+.footer-chat input *::-moz-placeholder {
+  color: #C0C0C0;
+  font-size: 13pt;
+  margin-left:5px;
+}
+.footer-chat input *:-ms-input-placeholder {
+  color: #C0C0C0;
+  font-size: 13pt;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+</style>
+</html>

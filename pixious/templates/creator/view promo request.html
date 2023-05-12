@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Anime Template">
+    <meta name="keywords" content="Anime, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promo Request</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/plyr.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="#">
+                            <img src="/static/img/logo.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li class="active"><a href="/creatorhome">Homepage</a></li>
+
+                                <li><a href="/viewplaylist">Playlist</a></li>
+                                <li><a href="/sendfeedback">Feedback</a></li>
+                                <li><a href="#">Contacts</a></li>
+                                <li><a href="">More <span class="arrow_carrot-down"></span></a>
+                                    <ul class="dropdown">
+                                        <li><a href="/addmovpromoreq"> Add promo request</a></li>
+                                        <li><a href="/viewhiringandapply">Hirings</a></li>
+                                        <li><a href="/addmovie">Add Movies</a></li>
+                                        <li><a href="/creatorbug">bugs?</a></li>
+                                        <li><a href="/logout">Log Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <div class="tab">
+<table width="70%" border="1">
+
+  <tr>
+    <th scope="row">Serial No</th>
+    <th>Movie Name</th>
+    <th>Description</th>
+    <th>poster</th>
+    <th>banner</th>
+      <th>status</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+
+    <td>&nbsp;{{ loop.index }}</td>
+    <td>&nbsp;{{ i.movie_name }}</td>
+    <td>{{ i.description }}</td>
+    <td>&nbsp;<img src="{{ i.poster }}" /></td>
+    <td><img src="{{ i.banner }}" /></td>
+      <td>{{ i.promo_status}}</td>
+
+  </tr>
+    {% endfor %}
+</table>
+        </div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+   table, td,th,tr{
+        color: white;
+
+    }
+</style>
+
+
+<!-- Js Plugins -->
+<script src="./static/js/jquery-3.3.1.min.js"></script>
+<script src="./static/js/bootstrap.min.js"></script>
+<script src="./static/js/player.js"></script>
+<script src="./static/js/jquery.nice-select.min.js"></script>
+<script src="./static/js/mixitup.min.js"></script>
+<script src="./static/js/jquery.slicknav.js"></script>
+<script src="./static/js/owl.carousel.min.js"></script>
+<script src="./static/js/main.js"></script>
+
+
+</body>
+
+</html>

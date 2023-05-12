@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Edit my details</title>
+</head>
+
+<body>
+<form action="/editcreatordetails" method="post"  enctype="multipart/form-data">
+<div class="form">
+      <div class="title">Edit</div>
+      <div class="subtitle">Let's edit your details!</div>
+      <div class="input-container ic1">
+        <input id="firstname" class="input" name="upname" type="text" placeholder=" " required/>
+        <div class="cut"></div>
+        <label for="firstname" class="placeholder">Name</label>
+      </div>
+      <div class="input-container ic2">
+        <input id="lastname" class="input" name="upbio" type="text" placeholder=" " required/>
+        <div class="cut"></div>
+        <label for="lastname" class="placeholder">Bio</label>
+      </div>
+      <div class="input-container ic2">
+        <input id="email" class="input" type="text" name="upemail" placeholder=" " required/>
+        <div class="cut cut-short"></div>
+        <label for="email" class="placeholder" >Email<label/>
+      </div>
+              <div class="input-container ic2">
+        <input id="profile_image" class="input" type="file" name="upfile" accept="image/png,image/jpg, image/jpeg" placeholder=" " required/>
+        <div class="cut cut"></div>
+        <label for="profile_image" class="placeholder">Image<label/>
+               <p style="color: #ffffff3d;margin-top: 62px;font-size: 13px;">We recommend square 1:1 for profile images</p>
+
+      </div>
+      <button type="submit" class="submit">Update</button>
+    </div>
+    </form>
+</body>
+
+    <style>
+
+        body {
+  align-items: center;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.form {
+  background-color: #15172b;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 561px;
+  padding: 20px;
+  width: 320px;
+}
+
+.title {
+  color: #eee;
+  font-family: sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.subtitle {
+  color: #eee;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.input-container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+}
+
+.ic1 {
+  margin-top: 40px;
+}
+
+.ic2 {
+  margin-top: 30px;
+}
+
+.input {
+  background-color: #303245;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+.cut {
+  background-color: #15172b;
+  border-radius: 10px;
+  height: 20px;
+  left: 20px;
+  position: absolute;
+  top: -20px;
+  transform: translateY(0);
+  transition: transform 200ms;
+  width: 76px;
+}
+
+.cut-short {
+  width: 50px;
+}
+
+.input:focus ~ .cut,
+.input:not(:placeholder-shown) ~ .cut {
+  transform: translateY(8px);
+}
+
+.placeholder {
+  color: #65657b;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: 20px;
+}
+
+.input:focus ~ .placeholder,
+.input:not(:placeholder-shown) ~ .placeholder {
+  transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+
+.input:not(:placeholder-shown) ~ .placeholder {
+  color: #808097;
+    bottom: -19px;
+}
+
+.input:focus ~ .placeholder {
+  color: #dc2f55;
+}
+
+.submit {
+  background-color: #08d;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 38px;
+  // outline: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.submit:active {
+  background-color: #06b;
+}
+        #profile_image{
+          padding-top: 11px;
+        }
+
+    </style>

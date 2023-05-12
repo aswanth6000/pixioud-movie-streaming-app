@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>User and Creator List</title>
+</head>
+
+
+<body>
+ <table width="200" border="1">
+  <tr>
+      <form method="POST">
+    <th scope="row">choose</th>
+    <td><label for="select"></label>
+      <select name="select" id="select">
+      <option value="rejected">User</option>
+      <option value="approved">Creator</option>
+      </select></td>
+      <td><input type="text" name="t" /></td>
+      <td><input type="submit" name="button" id="button" value="Search" /></td>
+      </form>
+
+  </tr>
+</table><br>
+<table width="200" border="1">
+  <tr>
+    <th scope="col">Serial No</th>
+    <th scope="col">Name</th>
+    <th scope="col">Profile Picture</th>
+    <th scope="col">Email</th>
+    <th scope="col">Phone No</th>
+    <th scope="col">creator status</th>
+    <th scope="col">user status</th>
+    <th scope="col">Action</th>
+  </tr>
+  {% for i in data %}
+  <tr>
+    <td>{{loop.index}}</td>
+    <td>{{i.name}}</td>
+    <td>{{i.photo}}</td>
+    <td>{{i.email}}</td>
+    <td>{{i.phone}}</td>
+     <td>{{i.status}}</td>
+     <td>{{i.user_status}}</td>
+{% if i.user_status=='active' %}
+        <td><a href="/user_block/{{ i.user_id }}"> block</a>
+    {% else %}
+    <td><a href="/user_unblock/{{ i.user_id }}"> unblock</a>
+    {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+
+</html>

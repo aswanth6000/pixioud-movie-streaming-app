@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Bugs</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="get" action="">
+
+<table width="200" border="1">
+  <tr>
+    <th scope="col">Serial No</th>
+    <th scope="col">Sender name</th>
+    <th scope="col">Bug Heading</th>
+    <th scope="col">Bug Description </th>
+    <th scope="col">Date</th>
+    <th scope="col">Email</th>
+      <!--<th scope="col">Reply Date</th>-->
+      <!--<th scope="col">Reply</th>-->
+      <!--<th scope="col">Type</th>-->
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>&nbsp;{{ loop.index }}</td>
+    <td>{{ i.name }}</td>
+    <td>{{ i.bug_heading }}</td>
+    <td>{{ i.bug_discription }}&nbsp;</td>
+    <td>{{ i.date }}&nbsp;</td>
+    <td>{{ i.email }}</td>
+ <!--<td><a href="">reply</a>&nbsp;</td>-->
+     <!--<td>{{ i.reply }}&nbsp;</td>-->
+   <!--<td>{{ i.type }}&nbsp;</td>-->
+  <!--<td><a href="/bugsreply/{{ i.bugs_id }}">Send_Reply</a> </td>-->
+
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
